@@ -1,0 +1,47 @@
+
+spring:
+  application:
+    name: Courier Tracking
+  jpa:
+    # Provide database platform that is being used
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      # New database is created when application starts and destroyed when application is stopped
+      ddl-auto: create-drop
+    # Show sql when spring data jpa performs query
+    show-sql: true
+    properties:
+      hibernate:
+        # Format queries
+        format_sql: true
+    #    default_schema: classpath:/init.sql
+
+  datasource:
+    # URL connection to database (spring-security is database name)
+    url: jdbc:h2:mem:migros-one
+    # H2 sql Driver
+    driver-class-name: org.h2.Driver
+    username: root
+    password: 12345
+    dbcp2:
+      default-schema: classpath:/init.sql
+
+  h2:
+    console:
+      enabled: true
+
+kafka:
+  bootstrap.servers: localhost:9092
+  polling.timeout: 10000
+  producer:
+    order:
+      name: queuing.generated_project_for_tests.order
+      enabled: true
+      '[key.serializer]': org.apache.kafka.common.serialization.StringSerializer
+      '[value.serializer]': tech.ippon.generated.service.kafka.serializer.OrderSerializer
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+server:
+  port: 8081

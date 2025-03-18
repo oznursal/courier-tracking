@@ -1,0 +1,19 @@
+package com.oznursal.courier.tracking.domain.model;
+
+import lombok.*;
+
+import java.time.LocalDateTime;
+
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Entrance {
+    private Long id;
+    private Courier courier;
+    private Store store;
+    private Double latitude;
+    private Double longitude;
+    private LocalDateTime enteredAt;
+}
