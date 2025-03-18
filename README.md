@@ -67,7 +67,7 @@ The core logic of the application is organized as follows:
 ### For postman usage
 CollectionPath: [courier-tracking.postman_collection.json](courier-tracking.postman_collection.json)
 
-### For swagger Usage (Will Add)
+### For swagger Usage 
     http://localhost:8080/swagger-ui/index.html in your browser.
 
 
